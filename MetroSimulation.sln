@@ -1,9 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroSimulation.Train", "MetroSimulation.Train\MetroSimulation.Train.csproj", "{356B7795-52BB-40EF-87A6-EF59208D17A3}"
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroSimulation.Train.UI", "MetroSimulation.Train.UI\MetroSimulation.Train.UI.csproj", "{10DAB93D-A9F5-414C-9E67-2E606D55F8D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroSimulation.Train.Service", "MetroSimulation.Train.Service\MetroSimulation.Train.Service.csproj", "{E8DE64AF-46EC-487D-B0B5-5479D560F43E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +14,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{10DAB93D-A9F5-414C-9E67-2E606D55F8D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{10DAB93D-A9F5-414C-9E67-2E606D55F8D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{10DAB93D-A9F5-414C-9E67-2E606D55F8D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{10DAB93D-A9F5-414C-9E67-2E606D55F8D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8B89731-BCA6-45F3-A13B-D08D2CFECB2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8B89731-BCA6-45F3-A13B-D08D2CFECB2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8B89731-BCA6-45F3-A13B-D08D2CFECB2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8B89731-BCA6-45F3-A13B-D08D2CFECB2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
