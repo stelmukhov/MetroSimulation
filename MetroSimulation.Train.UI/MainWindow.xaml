@@ -11,7 +11,6 @@
     Title="MainWindow"
     Width="525"
     Height="350"
-    Background="{DynamicResource MaterialDesignPaper}"
     FontFamily="{DynamicResource MaterialDesignFont}"
     GlowBrush="{DynamicResource AccentColorBrush}"
     ShowIconOnTitleBar="True"
@@ -27,128 +26,220 @@
                 Width="*"
                 MinWidth="210"
                 MaxWidth="450" />
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Grid Column="0">
-            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                </Grid.RowDefinitions>
-                <TextBox
-                    Grid.Row="0"
-                    materialDesign:HintAssist.Hint="Connect IP"
-                    Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
-                    <TextBox.Text>
-                        <Binding
-                            Mode="TwoWay"
-                            Path="ConnectIp"
-                            UpdateSourceTrigger="PropertyChanged">
-                            <!--
+        <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
+            <materialDesign:Card Background="{DynamicResource MaterialDesignBackground}">
+                <StackPanel>
+                    <Expander HorizontalAlignment="Stretch" Header="Connect to Depot">
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                            </Grid.RowDefinitions>
+                            <TextBox
+                                Grid.Row="0"
+                                materialDesign:HintAssist.Hint="Connect IP"
+                                Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
+                                <TextBox.Text>
+                                    <Binding
+                                        Mode="TwoWay"
+                                        Path="ConnectIp"
+                                        UpdateSourceTrigger="PropertyChanged">
+                                        <!--
                                 <Binding.ValidationRules>
                                 <validation:IpAdressValidationRule ValidatesOnTargetUpdated="True" />
                                 </Binding.ValidationRules>
-                            -->
-                        </Binding>
-                    </TextBox.Text>
-                </TextBox>
-                <TextBox
-                    Grid.Row="1"
-                    Margin="0,5,0,5"
-                    materialDesign:HintAssist.Hint="Port"
-                    Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
-                    <TextBox.Text>
-                        <Binding
-                            Mode="TwoWay"
-                            Path="Port"
-                            UpdateSourceTrigger="PropertyChanged">
-                            <!--
+                                        -->
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+                            <TextBox
+                                Grid.Row="1"
+                                Margin="0,5,0,5"
+                                materialDesign:HintAssist.Hint="Port"
+                                Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
+                                <TextBox.Text>
+                                    <Binding
+                                        Mode="TwoWay"
+                                        Path="Port"
+                                        UpdateSourceTrigger="PropertyChanged">
+                                        <!--
                                 <Binding.ValidationRules>
                                 <validation:PortValidationRule ValidatesOnTargetUpdated="True" />
                                 </Binding.ValidationRules>
-                            -->
-                        </Binding>
-                    </TextBox.Text>
-                </TextBox>
+                                        -->
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+                            <StackPanel
+                                Grid.Row="2"
+                                Margin="0,15,0,0"
+                                Orientation="Horizontal">
+                                <Button
+                                    Width="100"
+                                    Command="{Binding StartButton}"
+                                    Content="Start"
+                                    IsEnabled="{Binding IsStartActive}"
+                                    Style="{DynamicResource MaterialDesignRaisedDarkButton}"
+                                    ToolTip="Start Room Server" />
+                                <Button
+                                    Width="100"
+                                    Margin="5,0,0,0"
+                                    Command="{Binding StopButton}"
+                                    Content="Stop"
+                                    IsEnabled="{Binding IsStopActive}"
+                                    Style="{DynamicResource MaterialDesignRaisedDarkButton}"
+                                    ToolTip="Start Room Server" />
+                            </StackPanel>
+                        </Grid>
+                    </Expander>
+                    <Border
+                        Height="1"
+                        HorizontalAlignment="Stretch"
+                        Background="{DynamicResource MaterialDesignDivider}"
+                        SnapsToDevicePixels="True" />
+                    <Expander HorizontalAlignment="Stretch" Header="Connect to Main Server">
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                            </Grid.RowDefinitions>
+                            <TextBox
+                                Grid.Row="0"
+                                materialDesign:HintAssist.Hint="Connect IP"
+                                Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
+                                <TextBox.Text>
+                                    <Binding
+                                        Mode="TwoWay"
+                                        Path="ConnectIp"
+                                        UpdateSourceTrigger="PropertyChanged">
+                                        <!--
+                                <Binding.ValidationRules>
+                                <validation:IpAdressValidationRule ValidatesOnTargetUpdated="True" />
+                                </Binding.ValidationRules>
+                                        -->
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+                            <TextBox
+                                Grid.Row="1"
+                                Margin="0,5,0,5"
+                                materialDesign:HintAssist.Hint="Port"
+                                Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
+                                <TextBox.Text>
+                                    <Binding
+                                        Mode="TwoWay"
+                                        Path="Port"
+                                        UpdateSourceTrigger="PropertyChanged">
+                                        <!--
+                                <Binding.ValidationRules>
+                                <validation:PortValidationRule ValidatesOnTargetUpdated="True" />
+                                </Binding.ValidationRules>
+                                        -->
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
 
-                <TextBox
-                    Grid.Row="2"
-                    Margin="0,5,0,5"
-                    materialDesign:HintAssist.Hint="Name"
-                    Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
-                    <TextBox.Text>
-                        <Binding
-                            Mode="TwoWay"
-                            Path="TrainName"
-                            UpdateSourceTrigger="PropertyChanged" />
-                    </TextBox.Text>
-                </TextBox>
 
-                <StackPanel
-                    Grid.Row="3"
-                    Margin="0,10,0,0"
-                    Orientation="Vertical">
-                    <TextBlock VerticalAlignment="Bottom" Foreground="DarkGray">Speed</TextBlock>
-                    <Slider
-                        AutoToolTipPlacement="TopLeft"
-                        AutoToolTipPrecision="0"
-                        IsSelectionRangeEnabled="True"
-                        Maximum="80"
-                        Minimum="40"
-                        TickFrequency="5"
-                        TickPlacement="BottomRight"
-                        ToolTip="Speed"
-                        Value="60" />
-                </StackPanel>
+                            <StackPanel
+                                Grid.Row="2"
+                                Margin="0,15,0,0"
+                                Orientation="Horizontal">
+                                <Button
+                                    Width="100"
+                                    Command="{Binding StartButton}"
+                                    Content="Start"
+                                    IsEnabled="{Binding IsStartActive}"
+                                    Style="{DynamicResource MaterialDesignRaisedDarkButton}"
+                                    ToolTip="Start Room Server" />
+                                <Button
+                                    Width="100"
+                                    Margin="5,0,0,0"
+                                    Command="{Binding StopButton}"
+                                    Content="Stop"
+                                    IsEnabled="{Binding IsStopActive}"
+                                    Style="{DynamicResource MaterialDesignRaisedDarkButton}"
+                                    ToolTip="Start Room Server" />
+                            </StackPanel>
+                        </Grid>
+                    </Expander>
+                    <Border
+                        Height="1"
+                        HorizontalAlignment="Stretch"
+                        Background="{DynamicResource MaterialDesignDivider}"
+                        SnapsToDevicePixels="True" />
+                    <Expander HorizontalAlignment="Stretch" Header="Train settings">
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                            </Grid.RowDefinitions>
+                            <TextBox
+                                Grid.Row="0"
+                                MinWidth="210"
+                                Margin="0,5,0,5"
+                                materialDesign:HintAssist.Hint="Name"
+                                Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
+                                <TextBox.Text>
+                                    <Binding
+                                        Mode="TwoWay"
+                                        Path="TrainName"
+                                        UpdateSourceTrigger="PropertyChanged" />
+                                </TextBox.Text>
+                            </TextBox>
 
-                <StackPanel
-                    Grid.Row="4"
-                    Margin="0,10,0,0"
-                    Orientation="Vertical">
-                    <TextBlock VerticalAlignment="Bottom" Foreground="DarkGray">Capacity</TextBlock>
-                    <Slider
-                        AutoToolTipPlacement="TopLeft"
-                        AutoToolTipPrecision="0"
-                        IsSelectionRangeEnabled="True"
-                        Maximum="500"
-                        Minimum="250"
-                        TickFrequency="50"
-                        TickPlacement="BottomRight"
-                        ToolTip="Speed"
-                        Value="350" />
+                            <StackPanel
+                                Grid.Row="1"
+                                Margin="0,10,0,0"
+                                Orientation="Vertical">
+                                <TextBlock VerticalAlignment="Bottom" Foreground="DarkGray">Speed</TextBlock>
+                                <Slider
+                                    AutoToolTipPlacement="TopLeft"
+                                    AutoToolTipPrecision="0"
+                                    IsSelectionRangeEnabled="True"
+                                    Maximum="80"
+                                    Minimum="40"
+                                    TickFrequency="5"
+                                    TickPlacement="BottomRight"
+                                    ToolTip="Speed"
+                                    Value="60" />
+                            </StackPanel>
+
+                            <StackPanel
+                                Grid.Row="2"
+                                Margin="0,10,0,0"
+                                Orientation="Vertical">
+                                <TextBlock VerticalAlignment="Bottom" Foreground="DarkGray">Capacity</TextBlock>
+                                <Slider
+                                    AutoToolTipPlacement="TopLeft"
+                                    AutoToolTipPrecision="0"
+                                    IsSelectionRangeEnabled="True"
+                                    Maximum="500"
+                                    Minimum="250"
+                                    TickFrequency="50"
+                                    TickPlacement="BottomRight"
+                                    ToolTip="Speed"
+                                    Value="350" />
+                            </StackPanel>
+                        </Grid>
+                    </Expander>
+                    <Border
+                        Height="1"
+                        HorizontalAlignment="Stretch"
+                        Background="{DynamicResource MaterialDesignDivider}"
+                        SnapsToDevicePixels="True" />
                 </StackPanel>
-                <StackPanel
-                    Grid.Row="5"
-                    Margin="0,15,0,0"
-                    Orientation="Horizontal">
-                    <Button
-                        x:Name="StartButton"
-                        Width="100"
-                        Command="{Binding StartButton}"
-                        Content="Start"
-                        IsEnabled="{Binding IsStartActive}"
-                        Style="{DynamicResource MaterialDesignRaisedDarkButton}"
-                        ToolTip="Start Room Server" />
-                    <Button
-                        Width="100"
-                        Margin="5,0,0,0"
-                        Command="{Binding StopButton}"
-                        Content="Stop"
-                        IsEnabled="{Binding IsStopActive}"
-                        Style="{DynamicResource MaterialDesignRaisedDarkButton}"
-                        ToolTip="Start Room Server" />
-                </StackPanel>
-            </Grid>
-        </Grid>
-        <Grid Column="1">
+            </materialDesign:Card>
+        </ScrollViewer>
+        <Grid Column="2">
             <ListView
                 x:Name="LogList"
                 HorizontalContentAlignment="Stretch"
-                Background="{Binding ElementName=StartButton, Path=Background}"
                 BorderThickness="0"
                 ItemsSource="{Binding Log}"
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
@@ -157,7 +248,7 @@
                     <DataTemplate>
                         <materialDesign:Card
                             Width="{Binding ElementName=LogList, Path=ActualWidth}"
-                            Margin="-5,0,-5,0"
+                            Margin="-5,-5,-5,0"
                             HorizontalAlignment="Stretch"
                             Background="{Binding BgColor}"
                             Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}">

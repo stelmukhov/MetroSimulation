@@ -160,7 +160,7 @@ namespace MetroSimulation.Train.UI.ViewModel
                        ?? (_startButtonCommand = new RelayCommand(async () =>
                        {
 
-                           ///TODO
+                           NormalMessage("Test string");
                        }));
             }
         }
@@ -200,7 +200,4 @@ namespace MetroSimulation.Train.UI.ViewModel
             _log.Add(LogMessage.SuccessMessage(text));
         }
     }
-}
-
-}
 }
