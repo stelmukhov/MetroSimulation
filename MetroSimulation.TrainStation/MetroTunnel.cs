@@ -33,7 +33,5 @@ namespace MetroSimulation.TrainStation
             get { return trains.ElementAt(0); }
             set { trains[0] = value; }
         }
-       
-
     }
 }

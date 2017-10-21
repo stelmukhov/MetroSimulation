@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroSimulation.Train.Servi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroSimulation.TrainStation", "MetroSimulation.TrainStation\MetroSimulation.TrainStation.csproj", "{D713E54D-472B-4B47-84C4-741D152262FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroSimulation.DepotService", "MetroSimulation.DepotService\MetroSimulation.DepotService.csproj", "{DB9D239D-1018-4E33-AB7D-540415D64AB2}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroSimulation.Observer.UI", "MetroSimulation.Observer.UI\MetroSimulation.Observer.UI.csproj", "{A7B92C5E-EAEA-4A6A-9C09-1864EBBD1B32}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroSimulation.Station.UI", "MetroSimulation.Station.UI\MetroSimulation.Station.UI.csproj", "{6B111744-ED5F-46BD-9E61-A658EAA4B36E}"
@@ -45,6 +47,10 @@ Global
 		{D713E54D-472B-4B47-84C4-741D152262FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D713E54D-472B-4B47-84C4-741D152262FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D713E54D-472B-4B47-84C4-741D152262FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB9D239D-1018-4E33-AB7D-540415D64AB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB9D239D-1018-4E33-AB7D-540415D64AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB9D239D-1018-4E33-AB7D-540415D64AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB9D239D-1018-4E33-AB7D-540415D64AB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
