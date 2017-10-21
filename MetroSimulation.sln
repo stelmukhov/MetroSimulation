@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroSimulation.Train", "MetroSimulation.Train\MetroSimulation.Train.csproj", "{356B7795-52BB-40EF-87A6-EF59208D17A3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroSimulation.Train.UI", "MetroSimulation.Train.UI\MetroSimulation.Train.UI.csproj", "{10DAB93D-A9F5-414C-9E67-2E606D55F8D7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroSimulation.Train.Service", "MetroSimulation.Train.Service\MetroSimulation.Train.Service.csproj", "{E8DE64AF-46EC-487D-B0B5-5479D560F43E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroSimulation.TrainStation", "MetroSimulation.TrainStation\MetroSimulation.TrainStation.csproj", "{D713E54D-472B-4B47-84C4-741D152262FB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroSimulation.Observer.UI", "MetroSimulation.Observer.UI\MetroSimulation.Observer.UI.csproj", "{A7B92C5E-EAEA-4A6A-9C09-1864EBBD1B32}"
 EndProject
@@ -39,8 +41,15 @@ Global
 		{6B111744-ED5F-46BD-9E61-A658EAA4B36E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B111744-ED5F-46BD-9E61-A658EAA4B36E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B111744-ED5F-46BD-9E61-A658EAA4B36E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D713E54D-472B-4B47-84C4-741D152262FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D713E54D-472B-4B47-84C4-741D152262FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D713E54D-472B-4B47-84C4-741D152262FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D713E54D-472B-4B47-84C4-741D152262FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CE447E79-A26E-4860-8980-31874EB6351B}
 	EndGlobalSection
 EndGlobal

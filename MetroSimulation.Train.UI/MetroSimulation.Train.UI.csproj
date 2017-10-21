@@ -124,5 +124,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MetroSimulation.Train.Service\MetroSimulation.Train.Service.csproj">
+      <Project>{e8de64af-46ec-487d-b0b5-5479d560f43e}</Project>
+      <Name>MetroSimulation.Train.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
