@@ -248,7 +248,7 @@
                     <DataTemplate>
                         <materialDesign:Card
                             Width="{Binding ElementName=LogList, Path=ActualWidth}"
-                            Margin="-5,-5,-5,0"
+                            Margin="-5"
                             HorizontalAlignment="Stretch"
                             Background="{Binding BgColor}"
                             Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}">
