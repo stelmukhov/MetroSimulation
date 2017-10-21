@@ -1,9 +1,5 @@
-﻿using System;
-using System.ServiceModel;
-
-namespace MetroSimulation.Train.Service
+﻿namespace MetroSimulation.Train.Service
 {
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
     public class TrainService : ITrainService
     {
         public void CreateTrain(string trainNumber,
