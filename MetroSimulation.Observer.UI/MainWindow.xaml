@@ -18,8 +18,8 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <materialDesign:Card
@@ -40,24 +40,21 @@
                     </StackPanel>
                     <StackPanel Margin="0,0,10,0" Orientation="Horizontal">
                         <Label Margin="0,0,10,0">Port:</Label>
-                        <TextBox
-                            Width="150"
-                            materialDesign:HintAssist.Hint="Input port number"
-                            materialDesign:HintAssist.IsFloating="False" />
+                        <TextBox materialDesign:HintAssist.Hint="Input port number" materialDesign:HintAssist.IsFloating="False" />
                     </StackPanel>
                     <Button Height="25" Command="{Binding ConnectToTrainCommand}">Connect to train</Button>
                 </StackPanel>
                 <ListView ItemsSource="{Binding Trains}">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal" />
+                            <UniformGrid Columns="7" />
                         </ItemsPanelTemplate>
                     </ListView.ItemsPanel>
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <materialDesign:Card
-                                Width="150"
                                 Padding="5"
+                                VerticalAlignment="Center"
                                 Background="{DynamicResource MaterialDesignPaper}"
                                 Foreground="{DynamicResource PrimaryHueDarkBrush}">
                                 <StackPanel HorizontalAlignment="Center">

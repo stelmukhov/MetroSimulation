@@ -32,7 +32,7 @@
         <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
             <materialDesign:Card Background="{DynamicResource MaterialDesignBackground}">
                 <StackPanel>
-                    <Expander HorizontalAlignment="Stretch" Header="Connect to Depot">
+                    <Expander HorizontalAlignment="Stretch" Header="Train server">
                         <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="1*" />
@@ -41,7 +41,7 @@
                             </Grid.RowDefinitions>
                             <TextBox
                                 Grid.Row="0"
-                                materialDesign:HintAssist.Hint="Connect IP"
+                                materialDesign:HintAssist.Hint="IP"
                                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
                                 <TextBox.Text>
                                     <Binding

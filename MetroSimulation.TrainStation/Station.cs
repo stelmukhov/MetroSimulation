@@ -24,7 +24,7 @@ namespace MetroSimulation.TrainStation
 
         public double DelayStation
         {
-            get { return _delayStation; }
+            get { return _stationDelay; }
         }
 
 

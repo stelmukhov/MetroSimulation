@@ -1,9 +1,19 @@
-﻿namespace MetroSimulation.Train.Service
+﻿using System.ServiceModel;
+
+namespace MetroSimulation.Train.Service
 {
-    public class TrainService : ITrainService
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single,
+        IncludeExceptionDetailInFaults = true,
+        ConcurrencyMode = ConcurrencyMode.Multiple,
+        UseSynchronizationContext = false)]
+    public class TrainService : ITrainObserverService
     {
+        private IObserverCallback Observer { get; set; }
+        IObserverCallback CurrentObserverCallback => OperationContext.Current.
+            GetCallbackChannel<IObserverCallback>();
+
         public void CreateTrain(string trainNumber,
-            float speed, 
+            float speed,
             int maxPassengers,
             string trainPosition)
         {
@@ -13,6 +23,7 @@
                 _baseTrainInfo.SetNewPosition(trainPosition);
             }
         }
+
 
         public string GetTrainPosition()
         {
@@ -24,9 +35,19 @@
             _baseTrainInfo.SetNewPosition(possition);
         }
 
-        public Train GetTrainInfo()
+        public bool Connect()
         {
-            return _baseTrainInfo.BaseTrain;
+            if (Observer == null)
+            {
+                Observer = CurrentObserverCallback;
+                return true;
+            }
+            return false;
+        }
+
+        public void GetTrainInfo()
+        {
+            Observer.ReciveTrainInfo(_baseTrainInfo);
         }
 
         public void SetPassengers(int passengers)
@@ -34,7 +55,12 @@
             _baseTrainInfo.BaseTrain.SetPassengers(passengers);
         }
 
-        
+        public void Disconnect()
+        {
+            Observer = null;
+        }
+
+
         private TrainInfo _baseTrainInfo;
     }
 }
