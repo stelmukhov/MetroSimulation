@@ -3,7 +3,7 @@ using GalaSoft.MvvmLight;
 
 namespace MetroSimulation.Observer.UI.Model
 {
-    public class Train :ViewModelBase
+    public class TrainUI :ViewModelBase
     {
         public int IP { get; set; }
 

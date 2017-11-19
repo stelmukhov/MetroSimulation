@@ -6,19 +6,14 @@ namespace MetroSimulation.Train
     public class TrainInfo
     {
         [DataMember]
-        public Train  BaseTrain { get; private set; }
+        public Train  BaseTrain { get; set; }
         [DataMember]
-        public string TrainPosition { get; private set;}
+        public string TrainPosition { get; set;}
 
         public TrainInfo(string trainNumber, float speed, int maxPassengers)
         {
+            TrainPosition = "In depo";
             BaseTrain = new Train(trainNumber, speed, maxPassengers);
-        }
-
-
-        public void SetNewPosition(string newPosition)
-        {
-            TrainPosition = newPosition;
         }
     }
 }

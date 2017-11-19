@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MetroSimulation.Train" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MetroSimulation.Train" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="TrainInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BaseTrain" nillable="true" type="tns:Train" />
+      <xs:element minOccurs="0" name="TrainPosition" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrainInfo" nillable="true" type="tns:TrainInfo" />
+  <xs:complexType name="Train">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CurrentPassengers" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxPassengers" type="xs:int" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Speed" type="xs:float" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Train" nillable="true" type="tns:Train" />
+</xs:schema>

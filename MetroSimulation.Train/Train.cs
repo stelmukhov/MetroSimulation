@@ -9,36 +9,19 @@ namespace MetroSimulation.Train
         public int MaxPassengers { get; private set; }
 
         [DataMember]
-        public string Number
-        {
-            get { return _trainNumber; }
-        }
+        public string Number { get; set;}
         [DataMember]
-        public float Speed
-        {
-            get { return _speed; }
-        }
+        public float Speed { get; set; }
         [DataMember]
-        public int CurrentPassengers
-        {
-            get { return _currentPassengers; }
-        }
-
-        public void SetPassengers(int passengers)
-        {
-            _currentPassengers = passengers;
-        }
+        public int CurrentPassengers { get; set; }
 
         public Train(string trainNumber, float speed, int maxPassengers)
         {
-            _trainNumber = trainNumber;
-            _speed = speed;
+            Number = trainNumber;
+            Speed = speed;
             MaxPassengers = maxPassengers;
-            _currentPassengers = 0;
+            CurrentPassengers = 0;
         }
 
-        private string _trainNumber;
-        private float  _speed;
-        private int    _currentPassengers;
     }
 }

@@ -8,6 +8,7 @@ using System.Globalization;
 using System.ServiceModel;
 using System.ServiceModel.Description;
 using System.Threading.Tasks;
+using MetroSimulation.Train.Service;
 
 namespace MetroSimulation.Train.UI.ViewModel
 {
@@ -230,6 +231,8 @@ namespace MetroSimulation.Train.UI.ViewModel
                             MetadataExchangeBindings.CreateMexTcpBinding(),
                             $"net.tcp://{ListenIp}:{int.Parse(Port) - 1}/Host/mex");
 
+                        NormalMessage($"net.tcp://{ListenIp}:{int.Parse(Port) - 1}/Host/mex");
+
                         try
                         {
                             NormalMessage("Try to open connection...");
@@ -285,7 +288,6 @@ namespace MetroSimulation.Train.UI.ViewModel
                                {
                                    IsStartActive = true;
                                    SuccessMessage("Connection closed");
-
                                }
                                else
                                {

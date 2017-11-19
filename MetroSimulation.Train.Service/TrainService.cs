@@ -1,4 +1,6 @@
-﻿using System.ServiceModel;
+﻿using System;
+using System.Linq;
+using System.ServiceModel;
 
 namespace MetroSimulation.Train.Service
 {
@@ -20,7 +22,7 @@ namespace MetroSimulation.Train.Service
             if (_baseTrainInfo == null)
             {
                 _baseTrainInfo = new TrainInfo(trainNumber, speed, maxPassengers);
-                _baseTrainInfo.SetNewPosition(trainPosition);
+                _baseTrainInfo.TrainPosition=trainPosition;
             }
         }
 
@@ -32,17 +34,13 @@ namespace MetroSimulation.Train.Service
 
         public void SetTrainPosition(string possition)
         {
-            _baseTrainInfo.SetNewPosition(possition);
+            _baseTrainInfo.TrainPosition=(possition);
         }
 
         public bool Connect()
         {
-            if (Observer == null)
-            {
                 Observer = CurrentObserverCallback;
                 return true;
-            }
-            return false;
         }
 
         public void GetTrainInfo()
@@ -52,7 +50,7 @@ namespace MetroSimulation.Train.Service
 
         public void SetPassengers(int passengers)
         {
-            _baseTrainInfo.BaseTrain.SetPassengers(passengers);
+            _baseTrainInfo.BaseTrain.CurrentPassengers=(passengers);
         }
 
         public void Disconnect()
@@ -61,6 +59,13 @@ namespace MetroSimulation.Train.Service
         }
 
 
-        private TrainInfo _baseTrainInfo;
+        private TrainInfo _baseTrainInfo=new TrainInfo($"{RandomString(3)}-{random.Next(0,999)}",100,400);
+        private static Random random = new Random();
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
     }
 }

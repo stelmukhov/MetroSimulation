@@ -17,70 +17,185 @@
     </Window.DataContext>
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-
-        <materialDesign:Card
-            Grid.Row="0"
-            Margin="3"
-            materialDesign:ShadowAssist.ShadowDepth="Depth2">
-            <DockPanel>
-                <StackPanel
-                    HorizontalAlignment="Center"
-                    DockPanel.Dock="Top"
-                    Orientation="Horizontal">
-                    <StackPanel Orientation="Horizontal">
-                        <Label Margin="0,0,10,0">IP:</Label>
-                        <TextBox
-                            Width="150"
-                            materialDesign:HintAssist.Hint="Input IP adress"
-                            materialDesign:HintAssist.IsFloating="False" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <materialDesign:Card Grid.Row="0">
+                <DockPanel>
+                    <Button Command="{Binding OpenCloseStartSettings}">Start Settings</Button>
+                    <Button HorizontalAlignment="Right">Result View</Button>
+                </DockPanel>
+            </materialDesign:Card>
+            <materialDesign:Card
+                Grid.Row="1"
+                Margin="3"
+                materialDesign:ShadowAssist.ShadowDepth="Depth2">
+                <DockPanel>
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        DockPanel.Dock="Top"
+                        Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Margin="0,0,10,0">IP:</Label>
+                            <TextBox
+                                Width="150"
+                                materialDesign:HintAssist.Hint="Input IP adress"
+                                materialDesign:HintAssist.IsFloating="False"
+                                Text="{Binding IpAdress, Mode=TwoWay}" />
+                        </StackPanel>
+                        <StackPanel Margin="0,0,10,0" Orientation="Horizontal">
+                            <Label Margin="0,0,10,0">Port:</Label>
+                            <TextBox
+                                materialDesign:HintAssist.Hint="Input port number"
+                                materialDesign:HintAssist.IsFloating="False"
+                                Text="{Binding PortAdress, Mode=TwoWay}" />
+                        </StackPanel>
+                        <Button Height="25" Command="{Binding ConnectToTrainCommand}">Connect to train</Button>
                     </StackPanel>
-                    <StackPanel Margin="0,0,10,0" Orientation="Horizontal">
-                        <Label Margin="0,0,10,0">Port:</Label>
-                        <TextBox materialDesign:HintAssist.Hint="Input port number" materialDesign:HintAssist.IsFloating="False" />
-                    </StackPanel>
-                    <Button Height="25" Command="{Binding ConnectToTrainCommand}">Connect to train</Button>
-                </StackPanel>
-                <ListView ItemsSource="{Binding Trains}">
-                    <ListView.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <UniformGrid Columns="7" />
-                        </ItemsPanelTemplate>
-                    </ListView.ItemsPanel>
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <materialDesign:Card
-                                Padding="5"
-                                VerticalAlignment="Center"
-                                Background="{DynamicResource MaterialDesignPaper}"
-                                Foreground="{DynamicResource PrimaryHueDarkBrush}">
-                                <StackPanel HorizontalAlignment="Center">
-                                    <Viewbox Width="48" Height="48">
-                                        <Canvas Width="24" Height="24">
-                                            <Path Data="M18,10H6V5H18M12,17C10.89,17 10,16.1 10,15C10,13.89 10.89,13 12,13A2,2 0 0,1 14,15A2,2 0 0,1 12,17M4,15.5A3.5,3.5 0 0,0 7.5,19L6,20.5V21H18V20.5L16.5,19A3.5,3.5 0 0,0 20,15.5V5C20,1.5 16.42,1 12,1C7.58,1 4,1.5 4,5V15.5Z" Fill="{Binding Color}" />
-                                        </Canvas>
-                                    </Viewbox>
-                                    <Label HorizontalAlignment="Center" Content="{Binding Name}" />
-                                    <Label HorizontalAlignment="Center" Content="{Binding Location}" />
-                                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                                        <Label>Passengers:</Label>
-                                        <Label Content="{Binding PassangersCount}" />
+                    <ListView ItemsSource="{Binding Trains}">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Columns="7" />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <materialDesign:Card
+                                    Padding="5"
+                                    VerticalAlignment="Center"
+                                    Background="{DynamicResource MaterialDesignPaper}"
+                                    Foreground="{DynamicResource PrimaryHueDarkBrush}">
+                                    <StackPanel HorizontalAlignment="Center">
+                                        <Viewbox Width="48" Height="48">
+                                            <Canvas Width="24" Height="24">
+                                                <Path Data="M18,10H6V5H18M12,17C10.89,17 10,16.1 10,15C10,13.89 10.89,13 12,13A2,2 0 0,1 14,15A2,2 0 0,1 12,17M4,15.5A3.5,3.5 0 0,0 7.5,19L6,20.5V21H18V20.5L16.5,19A3.5,3.5 0 0,0 20,15.5V5C20,1.5 16.42,1 12,1C7.58,1 4,1.5 4,5V15.5Z" Fill="{Binding Color}" />
+                                            </Canvas>
+                                        </Viewbox>
+                                        <Label HorizontalAlignment="Center" Content="{Binding Name}" />
+                                        <Label HorizontalAlignment="Center" Content="{Binding Location}" />
+                                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                            <Label>Passengers:</Label>
+                                            <Label Content="{Binding PassangersCount}" />
+                                        </StackPanel>
+                                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                            <Label>Speed:</Label>
+                                            <Label Content="{Binding Speed}" />
+                                        </StackPanel>
+                                        <Button Command="{Binding RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}, Path=DataContext.DisconnectTrain}" CommandParameter="{Binding}">Disconnect</Button>
                                     </StackPanel>
-                                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                                        <Label>Speed:</Label>
-                                        <Label Content="{Binding Speed}" />
-                                    </StackPanel>
-                                    <Button>Disconnect</Button>
+                                </materialDesign:Card>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </DockPanel>
+            </materialDesign:Card>
+        </Grid>
+        <controls:FlyoutsControl>
+            <controls:Flyout
+                Width="300"
+                AnimateOnPositionChange="True"
+                AnimateOpacity="True"
+                AreAnimationsEnabled="True"
+                Foreground="{DynamicResource MaterialDesignDarkForeground}"
+                Header="Start settings"
+                IsOpen="{Binding FlyOutIsOpen}"
+                Position="Left">
+                <StackPanel>
+                    <StackPanel IsEnabled="True" Orientation="Vertical">
+                        <materialDesign:Card Margin="0,4">
+                            <StackPanel>
+                                <Label
+                                    HorizontalAlignment="Center"
+                                    Background="{DynamicResource PrimaryHueMidBrush}"
+                                    FontSize="18"
+                                    Foreground="{DynamicResource PrimaryHueMidForegroundBrush}">
+                                    Trains
+                                </Label>
+                                <StackPanel Margin="0,10,0,0" Orientation="Vertical">
+                                    <TextBlock VerticalAlignment="Bottom" Foreground="DarkGray">Avg Speed</TextBlock>
+                                    <Slider
+                                        AutoToolTipPlacement="TopLeft"
+                                        AutoToolTipPrecision="0"
+                                        IsSelectionRangeEnabled="True"
+                                        Maximum="80"
+                                        Minimum="40"
+                                        TickFrequency="5"
+                                        TickPlacement="BottomRight"
+                                        ToolTip="Speed"
+                                        Value="60" />
                                 </StackPanel>
-                            </materialDesign:Card>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </DockPanel>
-        </materialDesign:Card>
+
+                                <StackPanel Margin="0,10,0,0" Orientation="Vertical">
+                                    <TextBlock VerticalAlignment="Bottom" Foreground="DarkGray">Avg Capacity</TextBlock>
+                                    <Slider
+                                        AutoToolTipPlacement="TopLeft"
+                                        AutoToolTipPrecision="0"
+                                        IsSelectionRangeEnabled="True"
+                                        Maximum="500"
+                                        Minimum="250"
+                                        TickFrequency="50"
+                                        TickPlacement="BottomRight"
+                                        ToolTip="Speed"
+                                        Value="350" />
+                                </StackPanel>
+                            </StackPanel>
+                        </materialDesign:Card>
+                        <materialDesign:Card>
+                            <StackPanel Orientation="Vertical">
+                                <Label
+                                    HorizontalAlignment="Center"
+                                    Background="{DynamicResource PrimaryHueMidBrush}"
+                                    FontSize="18"
+                                    Foreground="{DynamicResource PrimaryHueMidForegroundBrush}">
+                                    Train Stations
+                                </Label>
+                                <StackPanel Margin="0,10,0,0" Orientation="Vertical">
+                                    <TextBlock VerticalAlignment="Bottom" Foreground="DarkGray">Avg Passangers Income</TextBlock>
+                                    <Slider
+                                        AutoToolTipPlacement="TopLeft"
+                                        Maximum="150"
+                                        Minimum="0"
+                                        ToolTip="Speed"
+                                        Value="50" />
+                                </StackPanel>
+                            </StackPanel>
+                        </materialDesign:Card>
+                        <materialDesign:Card Padding="5">
+                            <StackPanel Orientation="Vertical">
+                                <Label
+                                    HorizontalAlignment="Center"
+                                    Background="{DynamicResource PrimaryHueMidBrush}"
+                                    FontSize="18"
+                                    Foreground="{DynamicResource PrimaryHueMidForegroundBrush}">
+                                    Simulation
+                                </Label>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:TimePicker
+                                        HorizontalAlignment="Left"
+                                        materialDesign:HintAssist.Hint="Simulation Time"
+                                        Foreground="Black"
+                                        Is24Hours="True"
+                                        Style="{DynamicResource MaterialDesignFloatingHintTimePicker}" />
+                                    <Label VerticalAlignment="Bottom">Time multiplier</Label>
+                                    <controls:NumericUpDown
+                                        BorderThickness="0"
+                                        Interval="5"
+                                        Maximum="100"
+                                        Minimum="1"
+                                        StringFormat="{}{0}X"
+                                        Value="10" />
+                                </StackPanel>
+                            </StackPanel>
+                        </materialDesign:Card>
+                        <Button>Start Simulation</Button>
+                    </StackPanel>
+                    <Button Background="Red">Abort Simulation</Button>
+                </StackPanel>
+            </controls:Flyout>
+        </controls:FlyoutsControl>
     </Grid>
 </controls:MetroWindow>
 

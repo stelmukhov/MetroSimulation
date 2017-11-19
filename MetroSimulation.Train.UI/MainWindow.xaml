@@ -46,14 +46,8 @@
                                 <TextBox.Text>
                                     <Binding
                                         Mode="TwoWay"
-                                        Path="ConnectIp"
-                                        UpdateSourceTrigger="PropertyChanged">
-                                        <!--
-                                <Binding.ValidationRules>
-                                <validation:IpAdressValidationRule ValidatesOnTargetUpdated="True" />
-                                </Binding.ValidationRules>
-                                        -->
-                                    </Binding>
+                                        Path="ListenIp"
+                                        UpdateSourceTrigger="PropertyChanged" />
                                 </TextBox.Text>
                             </TextBox>
                             <TextBox

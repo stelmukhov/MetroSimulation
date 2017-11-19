@@ -11,6 +11,8 @@ namespace MetroSimulation.DepotService
     [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Multiple, InstanceContextMode = InstanceContextMode.Single)]
     public class DepotService : IDepotService
     {
+        public DepotService() { }
+
         public DepotService(string name, double delay)
         {
             _depot = new MetroDepot(name, delay);
